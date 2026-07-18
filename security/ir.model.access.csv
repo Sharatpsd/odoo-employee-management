@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_employee_management_employee_user,employee.management.employee.user,model_employee_management_employee,base.group_user,1,1,1,1
+access_employee_management_department_user,employee.management.department.user,model_employee_management_department,base.group_user,1,1,1,1
+access_employee_management_designation_user,employee.management.designation.user,model_employee_management_designation,base.group_user,1,1,1,1
