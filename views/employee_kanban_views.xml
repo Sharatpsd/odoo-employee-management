@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ========================================================= -->
+    <!-- Employee Kanban View -->
+    <!-- ========================================================= -->
+
+    <record id="view_employee_management_employee_kanban"
+            model="ir.ui.view">
+
+        <field name="name">
+            employee.management.employee.kanban
+        </field>
+
+        <field name="model">
+            employee.management.employee
+        </field>
+
+        <field name="arch" type="xml">
+
+            <kanban class="o_kanban_mobile">
+
+                <field name="image_1920"/>
+                <field name="name"/>
+                <field name="employee_code"/>
+                <field name="department_id"/>
+                <field name="designation_id"/>
+                <field name="status"/>
+
+                <templates>
+
+                    <t t-name="card">
+
+                        <div class="oe_kanban_global_click">
+
+                            <div class="text-center mb-3">
+
+                                <field
+                                    name="image_1920"
+                                    widget="image"
+                                    class="oe_avatar"/>
+
+                            </div>
+
+                            <div class="fw-bold fs-5">
+                                <field name="name"/>
+                            </div>
+
+                            <div class="text-muted">
+                                <field name="employee_code"/>
+                            </div>
+
+                            <hr/>
+
+                            <div>
+                                <strong>Department :</strong>
+                                <field name="department_id"/>
+                            </div>
+
+                            <div>
+                                <strong>Designation :</strong>
+                                <field name="designation_id"/>
+                            </div>
+
+                            <div class="mt-2">
+                                <field
+                                    name="status"
+                                    widget="badge"/>
+                            </div>
+
+                        </div>
+
+                    </t>
+
+                </templates>
+
+            </kanban>
+
+        </field>
+
+    </record>
+
+</odoo>
