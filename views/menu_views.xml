@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ========================================================= -->
+    <!-- Root Menu -->
+    <!-- ========================================================= -->
+
+    <menuitem
+        id="menu_employee_management_root"
+        name="Employee Management"
+        sequence="10"/>
+
+
+    <!-- ========================================================= -->
+    <!-- Employee Menu -->
+    <!-- ========================================================= -->
+
+    <menuitem
+        id="menu_employee_management_employee"
+        name="Employees"
+        parent="menu_employee_management_root"
+        action="action_employee_management_employee"
+        sequence="10"/>
+
+
+    <!-- ========================================================= -->
+    <!-- Department Menu -->
+    <!-- ========================================================= -->
+
+    <menuitem
+        id="menu_employee_management_department"
+        name="Departments"
+        parent="menu_employee_management_root"
+        action="action_employee_management_department"
+        sequence="20"/>
+
+
+    <!-- ========================================================= -->
+    <!-- Designation Menu -->
+    <!-- ========================================================= -->
+
+    <menuitem
+        id="menu_employee_management_designation"
+        name="Designations"
+        parent="menu_employee_management_root"
+        action="action_employee_management_designation"
+        sequence="30"/>
+
+</odoo>
