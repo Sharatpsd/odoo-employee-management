@@ -8,6 +8,7 @@
     <record id="view_employee_management_employee_list" model="ir.ui.view">
         <field name="name">employee.management.employee.list</field>
         <field name="model">employee.management.employee</field>
+
         <field name="arch" type="xml">
             <list string="Employees">
 
@@ -26,7 +27,6 @@
         </field>
     </record>
 
-
     <!-- ========================================================= -->
     <!-- Employee Form View -->
     <!-- ========================================================= -->
@@ -34,8 +34,8 @@
     <record id="view_employee_management_employee_form" model="ir.ui.view">
         <field name="name">employee.management.employee.form</field>
         <field name="model">employee.management.employee</field>
-        <field name="arch" type="xml">
 
+        <field name="arch" type="xml">
             <form string="Employee">
 
                 <header>
@@ -91,9 +91,7 @@
                     <div class="oe_title">
                         <label for="name"/>
                         <h1>
-                            <field
-                                name="name"
-                                placeholder="Employee Name"/>
+                            <field name="name" placeholder="Employee Name"/>
                         </h1>
                     </div>
 
@@ -101,14 +99,9 @@
 
                         <group string="Employee Information">
 
-                            <field
-                                name="employee_code"
-                                readonly="1"/>
-
+                            <field name="employee_code" readonly="1"/>
                             <field name="department_id"/>
-
                             <field name="designation_id"/>
-
                             <field name="joining_date"/>
 
                         </group>
@@ -116,19 +109,9 @@
                         <group string="Personal Information">
 
                             <field name="date_of_birth"/>
-
-                            <field
-                                name="age"
-                                readonly="1"/>
-
-                            <field
-                                name="email"
-                                widget="email"/>
-
-                            <field
-                                name="phone"
-                                widget="phone"/>
-
+                            <field name="age" readonly="1"/>
+                            <field name="email" widget="email"/>
+                            <field name="phone" widget="phone"/>
                             <field name="active"/>
 
                         </group>
@@ -138,11 +121,9 @@
                     <notebook>
 
                         <page string="Notes">
-
                             <field
                                 name="notes"
                                 placeholder="Internal Notes..."/>
-
                         </page>
 
                     </notebook>
@@ -150,112 +131,61 @@
                 </sheet>
 
             </form>
-
         </field>
     </record>
 
+<!-- ========================================================= -->
+<!-- Employee Search View -->
+<!-- ========================================================= -->
 
-    <!-- ========================================================= -->
-    <!-- Employee Search View -->
-    <!-- ========================================================= -->
+<record id="view_employee_management_employee_search" model="ir.ui.view">
+    <field name="name">employee.management.employee.search</field>
+    <field name="model">employee.management.employee</field>
 
-    <record id="view_employee_management_employee_search"
-            model="ir.ui.view">
+    <field name="arch" type="xml">
+        <search>
 
-        <field name="name">
-            employee.management.employee.search
-        </field>
+            <field name="employee_code"/>
+            <field name="name"/>
+            <field name="department_id"/>
+            <field name="designation_id"/>
+            <field name="email"/>
 
-        <field name="model">
-            employee.management.employee
-        </field>
-
-        <field name="arch" type="xml">
-
-            <search>
-
-                <field name="employee_code"/>
-                <field name="name"/>
-                <field name="department_id"/>
-                <field name="designation_id"/>
-                <field name="email"/>
-                <field name="status"/>
-
-                <separator/>
-
-                <filter
-                    name="active"
+            <filter name="active"
                     string="Active"
                     domain="[('active','=',True)]"/>
 
-                <filter
-                    name="inactive"
+            <filter name="inactive"
                     string="Inactive"
                     domain="[('active','=',False)]"/>
 
-                <group
-                    expand="0"
-                    string="Group By">
+            <separator/>
 
-                    <filter
-                        string="Department"
-                        context="{'group_by':'department_id'}"/>
+            <filter name="group_department"
+                    string="Department"
+                    context="{'group_by':'department_id'}"/>
 
-                    <filter
-                        string="Designation"
-                        context="{'group_by':'designation_id'}"/>
+            <filter name="group_designation"
+                    string="Designation"
+                    context="{'group_by':'designation_id'}"/>
 
-                    <filter
-                        string="Status"
-                        context="{'group_by':'status'}"/>
+            <filter name="group_status"
+                    string="Status"
+                    context="{'group_by':'status'}"/>
 
-                </group>
+        </search>
+    </field>
+</record>
 
-            </search>
+    <!-- ========================================================= -->
+    <!-- Employee Action -->
+    <!-- ========================================================= -->
 
-        </field>
-
+    <record id="action_employee_management_employee" model="ir.actions.act_window">
+        <field name="name">Employees</field>
+        <field name="res_model">employee.management.employee</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="search_view_id" ref="view_employee_management_employee_search"/>
     </record>
-
-
-    <!-- ========================================================= -->
-    <!-- Action -->
-    <!-- ========================================================= -->
-
-    <record
-        id="action_employee_management_employee"
-        model="ir.actions.act_window">
-
-        <field name="name">
-            Employees
-        </field>
-
-      <field name="res_model">employee.management.employee</field>
-        <field name="view_mode">
-            kanban,list,form
-        </field>
-
-        <field
-            name="search_view_id"
-            ref="view_employee_management_employee_search"/>
-
-    </record>
-
-
-    <!-- ========================================================= -->
-    <!-- Menu -->
-    <!-- ========================================================= -->
-
-    <menuitem
-        id="menu_employee_management_root"
-        name="Employee Management"
-        sequence="10"/>
-
-    <menuitem
-        id="menu_employee_management_employee"
-        name="Employees"
-        parent="menu_employee_management_root"
-        action="action_employee_management_employee"
-        sequence="10"/>
 
 </odoo>

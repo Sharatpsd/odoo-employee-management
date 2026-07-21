@@ -7,6 +7,13 @@ class EmployeeDesignation(models.Model):
     _order = "name"
 
     name = fields.Char(string="Designation", required=True)
+
+    department_id = fields.Many2one(
+        "employee.management.department",
+        string="Department",
+        ondelete="restrict",
+    )
+
     active = fields.Boolean(default=True)
 
     employee_ids = fields.One2many(

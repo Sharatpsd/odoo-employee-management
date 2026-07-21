@@ -4,6 +4,7 @@ from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
+
 class EmployeeManagementEmployee(models.Model):
     _name = "employee.management.employee"
     _description = "Managed Employee"

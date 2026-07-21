@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="dept_hr" model="employee.management.department">
+        <field name="name">Human Resources</field>
+        <field name="code">HR</field>
+    </record>
+
+    <record id="dept_it" model="employee.management.department">
+        <field name="name">Information Technology</field>
+        <field name="code">IT</field>
+    </record>
+
+    <record id="dept_accounts" model="employee.management.department">
+        <field name="name">Accounts</field>
+        <field name="code">ACC</field>
+    </record>
+
+    <record id="dept_sales" model="employee.management.department">
+        <field name="name">Sales</field>
+        <field name="code">SAL</field>
+    </record>
+
+</odoo>

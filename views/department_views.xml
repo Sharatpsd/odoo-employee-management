@@ -5,159 +5,85 @@
     <!-- Department List View -->
     <!-- ========================================================= -->
 
-    <record id="view_employee_management_department_list"
-            model="ir.ui.view">
-
-        <field name="name">
-            employee.management.department.list
-        </field>
-
-        <field name="model">
-            employee.management.department
-        </field>
-
+    <record id="view_employee_management_department_list" model="ir.ui.view">
+        <field name="name">employee.management.department.list</field>
+        <field name="model">employee.management.department</field>
         <field name="arch" type="xml">
-
             <list string="Departments">
-
                 <field name="name"/>
-
                 <field name="code"/>
-
                 <field name="manager_id"/>
-
                 <field name="active"/>
-
             </list>
-
         </field>
-
     </record>
-
 
     <!-- ========================================================= -->
     <!-- Department Form View -->
     <!-- ========================================================= -->
 
-    <record id="view_employee_management_department_form"
-            model="ir.ui.view">
-
-        <field name="name">
-            employee.management.department.form
-        </field>
-
-        <field name="model">
-            employee.management.department
-        </field>
-
+    <record id="view_employee_management_department_form" model="ir.ui.view">
+        <field name="name">employee.management.department.form</field>
+        <field name="model">employee.management.department</field>
         <field name="arch" type="xml">
-
             <form string="Department">
-
                 <sheet>
 
                     <div class="oe_title">
-
                         <label for="name"/>
-
                         <h1>
-
-                            <field
-                                name="name"
-                                placeholder="Department Name"/>
-
+                            <field name="name" placeholder="Department Name"/>
                         </h1>
-
                     </div>
 
                     <group>
-
                         <group>
-
                             <field name="code"/>
-
                             <field name="manager_id"/>
-
                             <field name="active"/>
-
                         </group>
-
                     </group>
 
                 </sheet>
-
             </form>
-
         </field>
-
     </record>
-
 
     <!-- ========================================================= -->
     <!-- Department Search View -->
     <!-- ========================================================= -->
 
-    <record id="view_employee_management_department_search"
-            model="ir.ui.view">
-
-        <field name="name">
-            employee.management.department.search
-        </field>
-
-        <field name="model">
-            employee.management.department
-        </field>
-
+    <record id="view_employee_management_department_search" model="ir.ui.view">
+        <field name="name">employee.management.department.search</field>
+        <field name="model">employee.management.department</field>
         <field name="arch" type="xml">
-
             <search>
-
                 <field name="name"/>
-
                 <field name="code"/>
-
                 <field name="manager_id"/>
 
                 <filter
                     name="active"
                     string="Active"
-                    domain="[('active','=',True)]"/>
+                    domain="[('active', '=', True)]"/>
 
                 <filter
                     name="inactive"
                     string="Inactive"
-                    domain="[('active','=',False)]"/>
-
+                    domain="[('active', '=', False)]"/>
             </search>
-
         </field>
-
     </record>
-
 
     <!-- ========================================================= -->
     <!-- Department Action -->
     <!-- ========================================================= -->
 
-    <record id="action_employee_management_department"
-            model="ir.actions.act_window">
-
-        <field name="name">
-            Departments
-        </field>
-
-        <field name="res_model">
-            employee.management.department
-        </field>
-
-        <field name="view_mode">
-            list,form
-        </field>
-
-        <field
-            name="search_view_id"
-            ref="view_employee_management_department_search"/>
-
+    <record id="action_employee_management_department" model="ir.actions.act_window">
+        <field name="name">Departments</field>
+        <field name="res_model">employee.management.department</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_employee_management_department_search"/>
     </record>
 
 </odoo>

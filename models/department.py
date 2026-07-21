@@ -10,6 +10,11 @@ class EmployeeDepartment(models.Model):
     code = fields.Char(string="Department Code")
     active = fields.Boolean(default=True)
 
+    manager_id = fields.Many2one(
+        "employee.management.employee",
+        string="Manager"
+    )
+
     employee_ids = fields.One2many(
         "employee.management.employee",
         "department_id",
