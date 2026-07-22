@@ -14,7 +14,7 @@
 ![License](https://img.shields.io/badge/License-LGPL--3-green?style=for-the-badge)
 
 </p>
-# 📖 Overview
+ 📖 Overview
 
 Employee Management System is a custom Odoo 19 module developed to simplify employee administration inside an organization.
 
