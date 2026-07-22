@@ -1,6 +1,4 @@
-<p align="center">
-    <img src="screenshots/employee.png" alt="Employee Management System" width="100%">
-</p>
+
 
 <h1 align="center">Employee Management System</h1>
 
