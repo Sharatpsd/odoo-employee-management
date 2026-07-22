@@ -1,57 +1,62 @@
 # 👨‍💼 Employee Management System
 
-A complete custom **Employee Management System** developed using **Odoo 19 Community Edition**.
+A complete custom **Employee Management System** built with **Odoo 19 Community Edition**. This project demonstrates end-to-end Odoo module development, including employee lifecycle management, business logic, custom workflows, security, smart buttons, and multiple UI views.
 
-This project was built to understand the complete Odoo development workflow, including custom models, XML views, ORM, business logic, security, workflows, smart buttons, computed fields, and module architecture.
-
----
-
-# 📌 Overview
-
-The Employee Management module helps organizations manage employees and their daily information from a single place.
-
-It allows administrators to:
-
-- Manage Employees
-- Manage Departments
-- Manage Designations
-- Record Attendance
-- Manage Employee Documents
-- Track Company Assets
-- Handle Employee Lifecycle
-- Control User Permissions
-
-The project follows Odoo's modular architecture and uses Python for business logic, XML for UI, PostgreSQL for data storage, and Odoo ORM for database operations.
+> This project was developed as part of my Odoo learning journey to gain hands-on experience with custom module development and ERP business workflows.
 
 ---
 
-# ✨ Key Features
+## 📌 Table of Contents
+
+- Overview
+- Features
+- Module Workflow
+- Technologies Used
+- Module Structure
+- Installation
+- Learning Outcomes
+- Future Improvements
+- Author
+- License
+
+---
+
+# 📖 Overview
+
+The Employee Management System is a custom Odoo module that centralizes employee-related operations in a single application.
+
+It enables organizations to:
+
+- Manage employee information
+- Organize departments and designations
+- Record attendance
+- Manage employee documents
+- Track company assets
+- Control employee workflow
+- Apply role-based security
+
+The project follows Odoo's MVC architecture and uses Python for business logic, XML for views, PostgreSQL for data storage, and Odoo ORM for database operations.
+
+---
+
+# ✨ Features
 
 ## 👤 Employee Management
 
-Complete employee profile management including:
-
-- Employee Name
-- Employee Code (Auto Generated)
+- Employee Profile
 - Employee Photo
+- Auto Generated Employee Code
+- Email & Phone
 - Date of Birth
-- Age Calculation
-- Email
-- Phone Number
+- Joining Date
 - Department
 - Designation
-- Joining Date
-- Probation End Date
-- Experience
-- Years of Service
-- Active Status
-- Internal Notes
+- Notes
+- Active/Inactive Status
 
----
+### Auto Employee Sequence
 
-## 🔢 Employee Sequence
-
-Every employee receives a unique Employee ID automatically.
+Every employee receives a unique ID automatically.
 
 Example:
 
@@ -61,32 +66,25 @@ EMP00002
 EMP00003
 ```
 
-Implemented using:
-
-- ir.sequence
-- create() override
-
 ---
 
 ## 🏢 Department Management
 
-Create and manage departments.
+Manage company departments.
 
-Example:
+Examples:
 
 - HR
-- Accounts
-- ERP
 - IT
+- ERP
+- Accounts
 - Marketing
-
-Department can be assigned to multiple employees.
 
 ---
 
 ## 💼 Designation Management
 
-Manage employee job titles.
+Manage employee job positions.
 
 Examples:
 
@@ -104,18 +102,16 @@ Track employee attendance.
 
 Features:
 
+- Attendance Date
 - Check In
 - Check Out
-- Working Hours
-- Attendance Date
-
-Attendance records are linked with employees.
+- Employee Reference
 
 ---
 
 ## 📄 Employee Documents
 
-Manage important employee files.
+Store employee-related documents.
 
 Examples:
 
@@ -128,16 +124,14 @@ Examples:
 Features:
 
 - Document Type
-- Upload File
+- File Upload
 - Description
-
-Integrated using Smart Button.
 
 ---
 
 ## 💻 Employee Assets
 
-Track company assets assigned to employees.
+Manage company assets assigned to employees.
 
 Examples:
 
@@ -154,32 +148,22 @@ Features:
 - Assigned Employee
 - Issue Date
 
-Integrated using Smart Button.
-
 ---
 
 # 🔘 Smart Buttons
 
-Employee form contains Smart Buttons for:
+Employee Form includes Smart Buttons for:
 
 - Documents
 - Assets
 
-Displays:
-
-- Total Documents
-- Total Assets
-
-Uses:
-
-- Computed Fields
-- Action Windows
+These buttons display record counts and provide quick navigation.
 
 ---
 
 # 🔄 Employee Workflow
 
-Employee lifecycle is managed using custom states.
+Employee lifecycle is managed using custom workflow states.
 
 ```
 Draft
@@ -193,116 +177,71 @@ On Leave
 Resigned
 ```
 
-Workflow is implemented using:
-
-- Selection Field
-- Header Statusbar
-- Python Methods
-- Object Buttons
-
 ---
 
-# 🔍 Search View
+# 🔍 Views
 
-Custom search functionality includes:
+The module includes multiple Odoo views.
 
-- Employee Name
-- Employee Code
-- Department
-- Designation
-- Status
+- Form View
+- List View
+- Kanban View
+- Search View
 
-Provides faster record filtering.
-
----
-
-# 📋 List View
-
-Displays employee records in table format.
-
-Supports:
-
-- Sorting
-- Searching
-- Filtering
-- Multi-record Operations
-
----
-
-# 🧩 Form View
-
-Complete employee details with organized sections.
-
-Includes:
-
-- Personal Information
-- Employee Information
-- Notes
-- Image Upload
-- Workflow
-- Smart Buttons
-
----
-
-# 🗂 Kanban View
-
-Modern employee cards displaying:
+Kanban cards display:
 
 - Employee Photo
 - Employee Name
 - Employee Code
 - Department
 - Designation
-- Status Badge
+- Status
 
 ---
 
 # 🔐 Security
 
-Implemented role-based security.
+Implemented role-based access control.
 
-## Employee Management User
+### Employee Management User
 
-Can:
-
-- View Employees
+- Read Records
 - Create Records
 - Update Records
 
----
+### Employee Management Manager
 
-## Employee Management Manager
-
-Has full control.
-
-Can:
-
-- Create
-- Update
-- Delete
+- Full CRUD Access
 - Manage All Records
+- Administrative Permissions
+
+Security includes:
+
+- Groups
+- Access Rights
+- Record Rules
 
 ---
 
-# 🛠 Business Logic
+# ⚙ Business Logic
 
-Implemented using Python.
+Implemented using Python and Odoo ORM.
 
 Includes:
 
-- Employee Code Generation
-- Age Calculation
-- Experience Calculation
-- Years of Service
-- Probation End Date
+- Auto Employee Sequence
+- Computed Fields
+- Related Fields
 - Smart Button Count
 - Workflow Actions
+- Custom Business Methods
+- Validations
 
 ---
 
 # 🗄 Database Models
 
-This project contains the following models:
+The project contains the following models:
 
 - employee.management.employee
 - employee.management.department
@@ -313,7 +252,7 @@ This project contains the following models:
 
 ---
 
-# 📂 Module Structure
+# 📂 Project Structure
 
 ```
 employee_management/
@@ -351,7 +290,7 @@ employee_management/
 
 ---
 
-# ⚙ Technologies Used
+# 🛠 Technologies Used
 
 - Odoo 19 Community
 - Python
@@ -365,36 +304,28 @@ employee_management/
 
 ---
 
-# 📚 What I Learned
+# 📚 Learning Outcomes
 
-During this project I explored:
+During this project I learned and practiced:
 
 - Odoo Module Development
-- Module Structure
-- Manifest File
 - Odoo ORM
-- Models
-- Fields
-- Relationships
-- Computed Fields
-- XML Views
-- Form View
-- List View
-- Kanban View
-- Search View
-- Menus
-- Actions
-- Smart Buttons
-- State Workflow
 - Python Business Logic
+- XML View Development
+- Form/List/Kanban/Search Views
+- Models & Relationships
+- Actions & Menus
+- Smart Buttons
+- Computed Fields
+- Related Fields
+- Workflow Management
 - Security Groups
-- Record Rules
 - Access Rights
+- Record Rules
 - Sequences
-- PostgreSQL
-- Odoo Shell
-- Debugging
-- Module Upgrade Process
+- PostgreSQL Integration
+- Module Installation & Upgrade
+- Debugging and Error Resolution
 
 ---
 
@@ -405,31 +336,42 @@ Planned features:
 - Leave Management
 - Payroll
 - Recruitment
-- Performance Evaluation
-- Dashboard
-- Charts & Reports
 - Employee Contracts
+- Performance Evaluation
+- Dashboard & Analytics
+- Calendar View
+- Graph & Pivot Views
+- PDF Reports
+- Excel Export
 - Email Notifications
-- QR Attendance
-- Barcode Support
+- QR/Barcode Support
 - Multi-company Support
 
 ---
 
 # 👨‍💻 Author
 
-**Sharat Acharja**
+## Sharat Acharja
 
-Backend Developer | Odoo Developer | Python Developer
+**Backend Developer | Odoo Developer | Python Developer**
 
-GitHub:
+🌐 **Portfolio**  
+https://sharatpsd.netlify.app/
+
+💻 **GitHub**  
 https://github.com/Sharatpsd
 
-LinkedIn:
-https://www.linkedin.com/in/sharat-acharja/
+💼 **LinkedIn**  
+https://www.linkedin.com/in/sharat-acharjya/
+
+---
+
+## ⭐ Support
+
+If you found this project useful, please consider giving it a **⭐ Star** on GitHub.
 
 ---
 
 # 📄 License
 
-LGPL-3
+This project is licensed under the **LGPL-3 License**.
