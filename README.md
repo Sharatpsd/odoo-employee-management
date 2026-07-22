@@ -1,169 +1,107 @@
-# 👨‍💼 Employee Management System
+<p align="center">
+    <img src="screenshots/employee.png" alt="Employee Management System" width="100%">
+</p>
 
-A complete custom **Employee Management System** built with **Odoo 19 Community Edition**. This project demonstrates end-to-end Odoo module development, including employee lifecycle management, business logic, custom workflows, security, smart buttons, and multiple UI views.
+<h1 align="center">Employee Management System</h1>
 
-> This project was developed as part of my Odoo learning journey to gain hands-on experience with custom module development and ERP business workflows.
+<p align="center">
+    A Custom Employee Management Module Built with Odoo 19 Community Edition
+</p>
 
----
+<p align="center">
 
-## 📌 Table of Contents
+![Odoo](https://img.shields.io/badge/Odoo-19-purple?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue?style=for-the-badge)
+![License](https://img.shields.io/badge/License-LGPL--3-green?style=for-the-badge)
 
-- Overview
-- Features
-- Module Workflow
-- Technologies Used
-- Module Structure
-- Installation
-- Learning Outcomes
-- Future Improvements
-- Author
-- License
+</p>
 
 ---
 
 # 📖 Overview
 
-The Employee Management System is a custom Odoo module that centralizes employee-related operations in a single application.
+Employee Management System is a custom Odoo 19 module developed to simplify employee administration inside an organization.
 
-It enables organizations to:
+The module centralizes employee information, department management, attendance tracking, document storage, and company asset management into a single ERP solution.
 
-- Manage employee information
-- Organize departments and designations
-- Record attendance
-- Manage employee documents
-- Track company assets
-- Control employee workflow
-- Apply role-based security
-
-The project follows Odoo's MVC architecture and uses Python for business logic, XML for views, PostgreSQL for data storage, and Odoo ORM for database operations.
+This project was built to gain practical experience with Odoo ERP development and demonstrates real-world implementation of custom business logic, security, workflows, ORM relationships, and XML-based user interfaces.
 
 ---
 
-# ✨ Features
+# 🚀 Key Features
 
-## 👤 Employee Management
+### 👤 Employee Management
 
 - Employee Profile
 - Employee Photo
-- Auto Generated Employee Code
+- Employee Code (Auto Sequence)
 - Email & Phone
 - Date of Birth
 - Joining Date
 - Department
 - Designation
 - Notes
-- Active/Inactive Status
-
-### Auto Employee Sequence
-
-Every employee receives a unique ID automatically.
-
-Example:
-
-```
-EMP00001
-EMP00002
-EMP00003
-```
+- Active Status
 
 ---
 
-## 🏢 Department Management
+### 🏢 Department Management
 
-Manage company departments.
-
-Examples:
-
-- HR
-- IT
-- ERP
-- Accounts
-- Marketing
+- Department Creation
+- Department Code
+- Department Manager
+- Active Status
 
 ---
 
-## 💼 Designation Management
+### 💼 Designation Management
 
-Manage employee job positions.
-
-Examples:
-
-- Software Engineer
-- ERP Executive
-- HR Officer
-- Accounts Executive
-- Manager
+- Employee Designations
+- Position Management
 
 ---
 
-## 🕒 Attendance Management
+### 🕒 Attendance Management
 
-Track employee attendance.
-
-Features:
-
-- Attendance Date
-- Check In
-- Check Out
-- Employee Reference
+- Employee Check-In
+- Employee Check-Out
+- Worked Hours
+- Attendance History
 
 ---
 
-## 📄 Employee Documents
+### 📄 Employee Document Management
 
-Store employee-related documents.
-
-Examples:
-
-- CV
-- National ID
-- Passport
-- Offer Letter
-- Appointment Letter
-
-Features:
-
+- Upload Documents
 - Document Type
-- File Upload
-- Description
+- Expiry Date
+- Attachments
+- Status
+- Notes
 
 ---
 
-## 💻 Employee Assets
+### 💻 Employee Asset Management
 
-Manage company assets assigned to employees.
-
-Examples:
-
-- Laptop
-- Desktop
-- Mobile
-- Keyboard
-- Mouse
-
-Features:
-
-- Asset Name
-- Asset Code
-- Assigned Employee
-- Issue Date
+- Company Asset Assignment
+- Asset Tracking
+- Asset Information
 
 ---
 
-# 🔘 Smart Buttons
+### 🔘 Smart Buttons
 
-Employee Form includes Smart Buttons for:
+Employee Form includes:
 
 - Documents
 - Assets
 
-These buttons display record counts and provide quick navigation.
+Displays related record counts with quick navigation.
 
 ---
 
-# 🔄 Employee Workflow
-
-Employee lifecycle is managed using custom workflow states.
+### 🔄 Employee Workflow
 
 ```
 Draft
@@ -179,80 +117,59 @@ Resigned
 
 ---
 
-# 🔍 Views
+### 🔐 Security
 
-The module includes multiple Odoo views.
+Role-based access control using
 
-- Form View
-- List View
-- Kanban View
-- Search View
-
-Kanban cards display:
-
-- Employee Photo
-- Employee Name
-- Employee Code
-- Department
-- Designation
-- Status
-
----
-
-# 🔐 Security
-
-Implemented role-based access control.
-
-### Employee Management User
-
-- Read Records
-- Create Records
-- Update Records
-
-### Employee Management Manager
-
-- Full CRUD Access
-- Manage All Records
-- Administrative Permissions
-
-Security includes:
-
-- Groups
+- Security Groups
 - Access Rights
 - Record Rules
 
 ---
 
-# ⚙ Business Logic
+# 📸 Screenshots
 
-Implemented using Python and Odoo ORM.
+## 👥 Employee Management
 
-Includes:
+Employee Kanban View displaying employee profiles.
 
-- Auto Employee Sequence
-- Computed Fields
-- Related Fields
-- Smart Button Count
-- Workflow Actions
-- Custom Business Methods
-- Validations
+<p align="center">
+<img src="screenshots/employee.png" width="900">
+</p>
 
 ---
 
-# 🗄 Database Models
+## 🏢 Department Management
 
-The project contains the following models:
+Department list view.
 
-- employee.management.employee
-- employee.management.department
-- employee.management.designation
-- employee.management.attendance
-- employee.management.document
-- employee.management.asset
+<p align="center">
+<img src="screenshots/Department.png" width="900">
+</p>
 
 ---
 
-# 📂 Project Structure
+## 🕒 Attendance Management
+
+Attendance check-in and check-out.
+
+<p align="center">
+<img src="screenshots/attendence.png" width="900">
+</p>
+
+---
+
+## 📄 Employee Documents
+
+Document management with attachments.
+
+<p align="center">
+<img src="screenshots/info.png" width="900">
+</p>
+
+---
+
+# 🏗 Module Architecture
 
 ```
 employee_management/
@@ -273,6 +190,12 @@ employee_management/
 │   ├── ir.model.access.csv
 │   └── security.xml
 │
+├── screenshots/
+│   ├── employee.png
+│   ├── Department.png
+│   ├── attendence.png
+│   └── info.png
+│
 ├── views/
 │   ├── employee_views.xml
 │   ├── employee_kanban_views.xml
@@ -283,68 +206,103 @@ employee_management/
 │   ├── employee_asset_views.xml
 │   └── menu_views.xml
 │
-├── __init__.py
 ├── __manifest__.py
+├── __init__.py
 └── README.md
 ```
 
 ---
 
-# 🛠 Technologies Used
+# ⚙ Technologies Used
 
-- Odoo 19 Community
-- Python
-- PostgreSQL
-- XML
-- Odoo ORM
-- Git
-- GitHub
-- Ubuntu (WSL)
-- VS Code
+| Technology | Description |
+|------------|-------------|
+| Odoo 19 Community | ERP Framework |
+| Python | Backend Development |
+| PostgreSQL | Database |
+| XML | User Interface |
+| Odoo ORM | Database Operations |
+| Git | Version Control |
+| GitHub | Source Code Hosting |
+| Ubuntu (WSL) | Development Environment |
+| VS Code | IDE |
 
 ---
 
-# 📚 Learning Outcomes
+# 🧠 Technical Highlights
 
-During this project I learned and practiced:
+This project demonstrates practical experience with:
 
-- Odoo Module Development
+- Custom Odoo Module Development
 - Odoo ORM
 - Python Business Logic
-- XML View Development
-- Form/List/Kanban/Search Views
-- Models & Relationships
-- Actions & Menus
+- XML Views
+- Form View
+- Tree View
+- Kanban View
+- Search View
 - Smart Buttons
 - Computed Fields
 - Related Fields
-- Workflow Management
-- Security Groups
-- Access Rights
+- Many2one Relationships
+- One2many Relationships
 - Record Rules
+- Access Rights
+- Security Groups
+- Custom Workflow
 - Sequences
+- Action Windows
+- Menus
 - PostgreSQL Integration
-- Module Installation & Upgrade
-- Debugging and Error Resolution
+- Module Installation
+- Module Upgrade
+- Debugging
+- Error Resolution
 
 ---
 
-# 🚀 Future Improvements
+# 🚀 Installation
 
-Planned features:
+Clone the repository
+
+```bash
+git clone https://github.com/Sharatpsd/odoo-employee-management.git
+```
+
+Copy the module into your **custom_addons** directory.
+
+Update the Apps List.
+
+Search for
+
+```
+Employee Management
+```
+
+Click
+
+```
+Install
+```
+
+---
+
+# 📈 Future Enhancements
 
 - Leave Management
 - Payroll
 - Recruitment
 - Employee Contracts
 - Performance Evaluation
-- Dashboard & Analytics
 - Calendar View
-- Graph & Pivot Views
+- Dashboard
+- Graph View
+- Pivot View
+- Email Notifications
+- QR Attendance
+- Barcode Support
 - PDF Reports
 - Excel Export
-- Email Notifications
-- QR/Barcode Support
 - Multi-company Support
 
 ---
@@ -355,20 +313,28 @@ Planned features:
 
 **Backend Developer | Odoo Developer | Python Developer**
 
-🌐 **Portfolio**  
+🌐 Portfolio  
 https://sharatpsd.netlify.app/
 
-💻 **GitHub**  
+💻 GitHub  
 https://github.com/Sharatpsd
 
-💼 **LinkedIn**  
+💼 LinkedIn  
 https://www.linkedin.com/in/sharat-acharjya/
 
 ---
 
-## ⭐ Support
+# 🤝 Contributing
 
-If you found this project useful, please consider giving it a **⭐ Star** on GitHub.
+Contributions, suggestions, and improvements are welcome.
+
+If you find a bug or have an idea for enhancement, feel free to open an Issue or submit a Pull Request.
+
+---
+
+# ⭐ Support
+
+If you found this project useful, please consider giving it a ⭐ Star on GitHub.
 
 ---
 
