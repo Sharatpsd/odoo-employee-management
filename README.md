@@ -20,7 +20,7 @@ Employee Management System is a custom Odoo 19 module developed to simplify empl
 
 The module centralizes employee information, department management, attendance tracking, document storage, and company asset management into a single ERP solution.
 
-This project was built to gain practical experience with Odoo ERP development and demonstrates real-world implementation of custom business logic, security, workflows, ORM relationships, and XML-based user interfaces.
+
 ---
 # 📸 Screenshots
 
