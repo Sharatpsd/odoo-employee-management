@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class EmployeeDesignation(models.Model):
@@ -21,3 +21,30 @@ class EmployeeDesignation(models.Model):
         "designation_id",
         string="Employees",
     )
+
+    employee_count = fields.Integer(
+        string="Employee Count",
+        compute="_compute_employee_count",
+    )
+
+    @api.depends("employee_ids")
+    def _compute_employee_count(self):
+        data = self.env["employee.management.employee"]._read_group(
+            domain=[("designation_id", "in", self.ids)],
+            groupby=["designation_id"],
+            aggregates=["__count"],
+        )
+        count_map = {designation.id: count for designation, count in data}
+        for rec in self:
+            rec.employee_count = count_map.get(rec.id, 0)
+
+    def action_view_employees(self):
+        self.ensure_one()
+        return {
+            "name": "Employees",
+            "type": "ir.actions.act_window",
+            "res_model": "employee.management.employee",
+            "view_mode": "kanban,list,form",
+            "domain": [("designation_id", "=", self.id)],
+            "context": {"default_designation_id": self.id},
+        }

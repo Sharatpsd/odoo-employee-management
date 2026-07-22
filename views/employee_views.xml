@@ -10,7 +10,10 @@
         <field name="model">employee.management.employee</field>
 
         <field name="arch" type="xml">
-            <list string="Employees">
+            <list string="Employees"
+                  decoration-success="status == 'active'"
+                  decoration-info="status == 'leave'"
+                  decoration-muted="status == 'resigned'">
 
                 <field name="image_1920" widget="image"/>
                 <field name="employee_code"/>
@@ -18,10 +21,12 @@
                 <field name="department_id"/>
                 <field name="designation_id"/>
                 <field name="status"/>
-                <field name="email"/>
-                <field name="phone"/>
-                <field name="joining_date"/>
-                <field name="active"/>
+                <field name="email" optional="show"/>
+                <field name="phone" optional="show"/>
+                <field name="joining_date" optional="show"/>
+                <field name="probation_end_date" optional="hide"/>
+                <field name="experience" optional="hide"/>
+                <field name="active" optional="show"/>
 
             </list>
         </field>
@@ -82,6 +87,25 @@
 
                 <sheet>
 
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_documents"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-file-text-o">
+                            <field name="document_count"
+                                   widget="statinfo"
+                                   string="Documents"/>
+                        </button>
+                        <button name="action_view_assets"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-cubes">
+                            <field name="asset_count"
+                                   widget="statinfo"
+                                   string="Assets"/>
+                        </button>
+                    </div>
+
                     <field
                         name="image_1920"
                         widget="image"
@@ -103,6 +127,10 @@
                             <field name="department_id"/>
                             <field name="designation_id"/>
                             <field name="joining_date"/>
+                            <field name="probation_end_date" readonly="1"/>
+                            <field name="experience" readonly="1"/>
+                            <field name="years_of_service" readonly="1"/>
+                            <field name="last_status_update" readonly="1"/>
 
                         </group>
 
@@ -149,29 +177,61 @@
             <field name="name"/>
             <field name="department_id"/>
             <field name="designation_id"/>
+            <field name="manager_id"/>
             <field name="email"/>
 
-            <filter name="active"
+            <!-- Status Filters -->
+            <filter name="status_draft"
+                    string="Draft"
+                    domain="[('status', '=', 'draft')]"/>
+            <filter name="status_confirmed"
+                    string="Confirmed"
+                    domain="[('status', '=', 'confirmed')]"/>
+            <filter name="status_active"
                     string="Active"
-                    domain="[('active','=',True)]"/>
-
-            <filter name="inactive"
-                    string="Inactive"
-                    domain="[('active','=',False)]"/>
+                    domain="[('status', '=', 'active')]"/>
+            <filter name="status_leave"
+                    string="On Leave"
+                    domain="[('status', '=', 'leave')]"/>
+            <filter name="status_resigned"
+                    string="Resigned"
+                    domain="[('status', '=', 'resigned')]"/>
 
             <separator/>
 
+            <!-- Active / Archived Filters -->
+            <filter name="active"
+                    string="Active"
+                    domain="[('active', '=', True)]"/>
+            <filter name="inactive"
+                    string="Archived"
+                    domain="[('active', '=', False)]"/>
+
+            <separator/>
+
+            <!-- Date Filter -->
+            <filter name="joined_this_month"
+                    string="Joined This Month"
+                    domain="[('joining_date', '&gt;=', context_today().strftime('%Y-%m-01'))]"/>
+
+            <separator/>
+
+            <!-- Group By Filters -->
             <filter name="group_department"
                     string="Department"
-                    context="{'group_by':'department_id'}"/>
+                    context="{'group_by': 'department_id'}"/>
 
             <filter name="group_designation"
                     string="Designation"
-                    context="{'group_by':'designation_id'}"/>
+                    context="{'group_by': 'designation_id'}"/>
+
+            <filter name="group_manager"
+                    string="Manager"
+                    context="{'group_by': 'manager_id'}"/>
 
             <filter name="group_status"
                     string="Status"
-                    context="{'group_by':'status'}"/>
+                    context="{'group_by': 'status'}"/>
 
         </search>
     </field>
@@ -186,6 +246,19 @@
         <field name="res_model">employee.management.employee</field>
         <field name="view_mode">kanban,list,form</field>
         <field name="search_view_id" ref="view_employee_management_employee_search"/>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- Bulk Action with Savepoint -->
+    <!-- ========================================================= -->
+
+    <record id="action_employee_bulk_activate" model="ir.actions.server">
+        <field name="name">Bulk Activate Employees</field>
+        <field name="model_id" ref="model_employee_management_employee"/>
+        <field name="binding_model_id" ref="model_employee_management_employee"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">action = records.action_bulk_activate_with_savepoint()</field>
     </record>
 
 </odoo>

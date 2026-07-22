@@ -35,10 +35,6 @@
         sequence="20"/>
 
 
-    <!-- ========================================================= -->
-    <!-- Designation Menu -->
-    <!-- ========================================================= -->
-
     <menuitem
         id="menu_employee_management_designation"
         name="Designations"
@@ -46,4 +42,38 @@
         action="action_employee_management_designation"
         sequence="30"/>
 
+    <!-- ========================================================= -->
+    <!-- Attendance Menu -->
+    <!-- ========================================================= -->
+
+    <menuitem
+        id="menu_employee_management_attendance"
+        name="Attendances"
+        parent="menu_employee_management_root"
+        action="action_employee_management_attendance"
+        sequence="40"/>
+
+    <!-- ========================================================= -->
+    <!-- Document Menu -->
+    <!-- ========================================================= -->
+
+    <menuitem
+        id="menu_employee_management_document"
+        name="Documents"
+        parent="menu_employee_management_root"
+        action="action_employee_management_document"
+        sequence="50"/>
+
+    <!-- ========================================================= -->
+    <!-- Asset Menu -->
+    <!-- ========================================================= -->
+
+    <menuitem
+        id="menu_employee_management_asset"
+        name="Assets"
+        parent="menu_employee_management_root"
+        action="action_employee_management_asset"
+        sequence="60"/>
+
 </odoo>
+

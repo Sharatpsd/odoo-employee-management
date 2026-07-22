@@ -8,16 +8,20 @@
     "depends": [
         "base",
     ],
- "data": [
-    "security/ir.model.access.csv",
-    "data/employee_sequence.xml",
+    "data": [
+        "security/security.xml",
+        "security/ir.model.access.csv",
+        "data/employee_sequence.xml",
+        "data/department_data.xml",
 
-    "views/department_views.xml",
-    "views/designation_views.xml",
-    "views/employee_views.xml",
-    "views/employee_kanban_views.xml",
-    "views/menu_views.xml",
-],
+        "views/department_views.xml",
+        "views/designation_views.xml",
+        "views/employee_views.xml",
+        "views/employee_kanban_views.xml",
+        "views/employee_document_views.xml",
+        "views/employee_asset_views.xml",
+        "views/menu_views.xml",
+    ],
     "application": True,
     "installable": True,
 }

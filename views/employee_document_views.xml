@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ========================================================= -->
+    <!-- Document List View -->
+    <!-- ========================================================= -->
+
+    <record id="view_employee_management_document_list" model="ir.ui.view">
+        <field name="name">employee.management.document.list</field>
+        <field name="model">employee.management.document</field>
+
+        <field name="arch" type="xml">
+            <list string="Employee Documents"
+                  decoration-danger="status == 'expired'"
+                  decoration-success="status == 'valid'">
+
+                <field name="employee_id"/>
+                <field name="name"/>
+                <field name="doc_type"/>
+                <field name="file_name" optional="show"/>
+                <field name="expiry_date"/>
+                <field name="status"
+                       widget="badge"
+                       decoration-danger="status == 'expired'"
+                       decoration-success="status == 'valid'"/>
+
+            </list>
+        </field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- Document Form View -->
+    <!-- ========================================================= -->
+
+    <record id="view_employee_management_document_form" model="ir.ui.view">
+        <field name="name">employee.management.document.form</field>
+        <field name="model">employee.management.document</field>
+
+        <field name="arch" type="xml">
+            <form string="Employee Document">
+
+                <sheet>
+
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Document Name"/>
+                        </h1>
+                    </div>
+
+                    <group>
+
+                        <group string="Document Information">
+                            <field name="employee_id"/>
+                            <field name="doc_type"/>
+                            <field name="expiry_date"/>
+                            <field name="status"
+                                   widget="badge"
+                                   decoration-danger="status == 'expired'"
+                                   decoration-success="status == 'valid'"/>
+                        </group>
+
+                        <group string="Attachment">
+                            <field name="attachment" filename="file_name"/>
+                            <field name="file_name" invisible="1"/>
+                        </group>
+
+                    </group>
+
+                    <notebook>
+                        <page string="Notes">
+                            <field name="notes"
+                                   placeholder="Additional notes about this document..."/>
+                        </page>
+                    </notebook>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- Document Search View -->
+    <!-- ========================================================= -->
+
+    <record id="view_employee_management_document_search" model="ir.ui.view">
+        <field name="name">employee.management.document.search</field>
+        <field name="model">employee.management.document</field>
+
+        <field name="arch" type="xml">
+            <search>
+
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="doc_type"/>
+
+                <!-- Status Filters -->
+                <filter name="filter_valid"
+                        string="Valid"
+                        domain="[('status', '=', 'valid')]"/>
+                <filter name="filter_expired"
+                        string="Expired"
+                        domain="[('status', '=', 'expired')]"/>
+
+                <separator/>
+
+                <!-- Document Type Filters -->
+                <filter name="filter_nid"
+                        string="National ID"
+                        domain="[('doc_type', '=', 'nid')]"/>
+                <filter name="filter_passport"
+                        string="Passport"
+                        domain="[('doc_type', '=', 'passport')]"/>
+                <filter name="filter_contract"
+                        string="Contract"
+                        domain="[('doc_type', '=', 'contract')]"/>
+
+                <separator/>
+
+                <!-- Group By -->
+                <filter name="group_employee"
+                        string="Employee"
+                        context="{'group_by': 'employee_id'}"/>
+                <filter name="group_doc_type"
+                        string="Document Type"
+                        context="{'group_by': 'doc_type'}"/>
+                <filter name="group_status"
+                        string="Status"
+                        context="{'group_by': 'status'}"/>
+
+            </search>
+        </field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- Document Action -->
+    <!-- ========================================================= -->
+
+    <record id="action_employee_management_document" model="ir.actions.act_window">
+        <field name="name">Employee Documents</field>
+        <field name="res_model">employee.management.document</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_employee_management_document_search"/>
+    </record>
+
+</odoo>

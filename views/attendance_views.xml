@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ========================================================= -->
+    <!-- Attendance List View -->
+    <!-- ========================================================= -->
+
+    <record id="view_employee_management_attendance_list" model="ir.ui.view">
+        <field name="name">employee.management.attendance.list</field>
+        <field name="model">employee.management.attendance</field>
+        <field name="arch" type="xml">
+            <list string="Attendances"
+                  decoration-success="status == 'checked_in'"
+                  decoration-muted="status == 'checked_out'">
+                <field name="employee_id"/>
+                <field name="check_in"/>
+                <field name="check_out"/>
+                <field name="worked_hours" widget="float_time"/>
+                <field name="status" widget="badge"
+                       decoration-success="status == 'checked_in'"
+                       decoration-info="status == 'checked_out'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- Attendance Form View -->
+    <!-- ========================================================= -->
+
+    <record id="view_employee_management_attendance_form" model="ir.ui.view">
+        <field name="name">employee.management.attendance.form</field>
+        <field name="model">employee.management.attendance</field>
+        <field name="arch" type="xml">
+            <form string="Attendance">
+                <header>
+                    <button name="action_check_out"
+                            type="object"
+                            string="Check Out"
+                            class="btn-primary"
+                            invisible="status == 'checked_out'"/>
+                    <field name="status" widget="statusbar" statusbar_visible="checked_in,checked_out"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Attendance Details">
+                            <field name="employee_id"/>
+                            <field name="check_in"/>
+                            <field name="check_out"/>
+                            <field name="worked_hours" widget="float_time" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- Attendance Search View -->
+    <!-- ========================================================= -->
+
+    <record id="view_employee_management_attendance_search" model="ir.ui.view">
+        <field name="name">employee.management.attendance.search</field>
+        <field name="model">employee.management.attendance</field>
+        <field name="arch" type="xml">
+            <search string="Search Attendance">
+                <field name="employee_id"/>
+
+                <filter name="checked_in"
+                        string="Checked In"
+                        domain="[('status', '=', 'checked_in')]"/>
+                <filter name="checked_out"
+                        string="Checked Out"
+                        domain="[('status', '=', 'checked_out')]"/>
+
+                <separator/>
+
+                <filter name="group_employee"
+                        string="Employee"
+                        context="{'group_by': 'employee_id'}"/>
+                <filter name="group_status"
+                        string="Status"
+                        context="{'group_by': 'status'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- Attendance Action -->
+    <!-- ========================================================= -->
+
+    <record id="action_employee_management_attendance" model="ir.actions.act_window">
+        <field name="name">Attendances</field>
+        <field name="res_model">employee.management.attendance</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_employee_management_attendance_search"/>
+    </record>
+
+</odoo>
