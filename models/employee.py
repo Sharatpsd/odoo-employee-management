@@ -220,18 +220,17 @@ class EmployeeManagementEmployee(models.Model):
             raise ValidationError(
                 "Please enter a valid email address."
             )
-
-    @api.model
-    def create(self, vals):
-        if vals.get("employee_code", "New") == "New":
-            vals["employee_code"] = (
-                self.env["ir.sequence"].next_by_code(
-                    "employee.management.employee"
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get("employee_code", "New") == "New":
+                vals["employee_code"] = (
+                    self.env["ir.sequence"].next_by_code(
+                        "employee.management.employee"
+                    ) or "New"
                 )
-                or "New"
-            )
 
-        return super().create(vals)
+        return super().create(vals_list)
 
     def action_confirm(self):
         self.filtered(lambda r: r.status == "draft").write({

@@ -10,30 +10,27 @@
 
     <!-- Employee User Group -->
     <record id="group_employee_management_user" model="res.groups">
-        <field name="name">User</field>
-        <field name="category_id" ref="module_category_employee_management"/>
+        <field name="name">Employee Management User</field>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
     </record>
 
     <!-- Employee Manager Group -->
     <record id="group_employee_management_manager" model="res.groups">
-        <field name="name">Manager</field>
-        <field name="category_id" ref="module_category_employee_management"/>
+        <field name="name">Employee Management Manager</field>
         <field name="implied_ids" eval="[(4, ref('group_employee_management_user'))]"/>
-        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
     </record>
 
-    <!-- Record Rules -->
-
-    <!-- Employee User Rule: Access own employee record only -->
+    <!-- Employee User Rule -->
     <record id="rule_employee_management_employee_user" model="ir.rule">
         <field name="name">Employee User: Own Records Only</field>
         <field name="model_id" ref="model_employee_management_employee"/>
-        <field name="domain_force">['|', ('create_uid', '=', user.id), ('email', '=', user.email)]</field>
+        <field name="domain_force">
+            ['|', ('create_uid', '=', user.id), ('email', '=', user.email)]
+        </field>
         <field name="groups" eval="[(4, ref('group_employee_management_user'))]"/>
     </record>
 
-    <!-- Employee Manager Rule: Access all employee records -->
+    <!-- Employee Manager Rule -->
     <record id="rule_employee_management_employee_manager" model="ir.rule">
         <field name="name">Employee Manager: All Records</field>
         <field name="model_id" ref="model_employee_management_employee"/>

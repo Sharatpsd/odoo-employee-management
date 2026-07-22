@@ -15,6 +15,7 @@
         "data/department_data.xml",
 
         "views/department_views.xml",
+        "views/attendance_views.xml",
         "views/designation_views.xml",
         "views/employee_views.xml",
         "views/employee_kanban_views.xml",
