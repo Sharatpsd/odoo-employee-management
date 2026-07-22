@@ -16,7 +16,87 @@
 </p>
 
 ---
+# 📸 Screenshots
 
+## 👥 Employee Management
+
+Employee Kanban View displaying employee profiles.
+
+<p align="center">
+<img src="screenshots/employee.png" width="900">
+</p>
+
+---
+
+## 🏢 Department Management
+
+Department list view.
+
+<p align="center">
+<img src="screenshots/Department.png" width="900">
+</p>
+
+---
+
+## 🕒 Attendance Management
+
+Attendance check-in and check-out.
+
+<p align="center">
+<img src="screenshots/attendence.png" width="900">
+</p>
+
+---
+
+## 📄 Employee Documents
+
+Document management with attachments.
+
+<p align="center">
+<img src="screenshots/info.png" width="900">
+</p>
+# 🏗 Module Architecture
+
+```
+employee_management/
+│
+├── data/
+│   ├── department_data.xml
+│   └── employee_sequence.xml
+│
+├── models/
+│   ├── employee.py
+│   ├── department.py
+│   ├── designation.py
+│   ├── attendance.py
+│   ├── employee_document.py
+│   └── employee_asset.py
+│
+├── security/
+│   ├── ir.model.access.csv
+│   └── security.xml
+│
+├── screenshots/
+│   ├── employee.png
+│   ├── Department.png
+│   ├── attendence.png
+│   └── info.png
+│
+├── views/
+│   ├── employee_views.xml
+│   ├── employee_kanban_views.xml
+│   ├── department_views.xml
+│   ├── designation_views.xml
+│   ├── attendance_views.xml
+│   ├── employee_document_views.xml
+│   ├── employee_asset_views.xml
+│   └── menu_views.xml
+│
+├── __manifest__.py
+├── __init__.py
+└── README.md
+```
+---
 # 📖 Overview
 
 Employee Management System is a custom Odoo 19 module developed to simplify employee administration inside an organization.
@@ -125,89 +205,9 @@ Role-based access control using
 
 ---
 
-# 📸 Screenshots
 
-## 👥 Employee Management
 
-Employee Kanban View displaying employee profiles.
 
-<p align="center">
-<img src="screenshots/employee.png" width="900">
-</p>
-
----
-
-## 🏢 Department Management
-
-Department list view.
-
-<p align="center">
-<img src="screenshots/Department.png" width="900">
-</p>
-
----
-
-## 🕒 Attendance Management
-
-Attendance check-in and check-out.
-
-<p align="center">
-<img src="screenshots/attendence.png" width="900">
-</p>
-
----
-
-## 📄 Employee Documents
-
-Document management with attachments.
-
-<p align="center">
-<img src="screenshots/info.png" width="900">
-</p>
-
----
-
-# 🏗 Module Architecture
-
-```
-employee_management/
-│
-├── data/
-│   ├── department_data.xml
-│   └── employee_sequence.xml
-│
-├── models/
-│   ├── employee.py
-│   ├── department.py
-│   ├── designation.py
-│   ├── attendance.py
-│   ├── employee_document.py
-│   └── employee_asset.py
-│
-├── security/
-│   ├── ir.model.access.csv
-│   └── security.xml
-│
-├── screenshots/
-│   ├── employee.png
-│   ├── Department.png
-│   ├── attendence.png
-│   └── info.png
-│
-├── views/
-│   ├── employee_views.xml
-│   ├── employee_kanban_views.xml
-│   ├── department_views.xml
-│   ├── designation_views.xml
-│   ├── attendance_views.xml
-│   ├── employee_document_views.xml
-│   ├── employee_asset_views.xml
-│   └── menu_views.xml
-│
-├── __manifest__.py
-├── __init__.py
-└── README.md
-```
 
 ---
 
