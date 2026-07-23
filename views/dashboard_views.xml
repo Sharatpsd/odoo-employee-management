@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ========================================================= -->
+    <!-- Employee Dashboard Form View                               -->
+    <!-- ========================================================= -->
+    <record id="view_employee_dashboard_form" model="ir.ui.view">
+        <field name="name">employee.management.dashboard.form</field>
+        <field name="model">employee.management.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="Employee Dashboard" class="o_employee_dashboard" create="0" edit="0" delete="0">
+                <sheet>
+
+                    <div class="oe_title mb-4">
+                        <h1>Employee Management Dashboard</h1>
+                    </div>
+
+                    <div class="container-fluid">
+
+                        <!-- ================================================= -->
+                        <!-- Section 1: Employee Statistics                     -->
+                        <!-- ================================================= -->
+                        <h4 class="mb-3">Employee Statistics</h4>
+                        <div class="row">
+
+                            <!-- Total Employees -->
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <div class="card shadow-sm rounded-3 h-100 border-0 text-white" style="background-color:#5B67CA;">
+                                    <div class="card-body text-center">
+                                        <i class="fa fa-users fa-2x mb-2" title="Total Employees" aria-label="Total Employees"/>
+                                        <field name="total_employee" nolabel="1" class="d-block fs-3 fw-bold text-white"/>
+                                        <span class="d-block small text-white-50">Total Employees</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Active Employees -->
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <div class="card shadow-sm rounded-3 h-100 border-0 text-white bg-success">
+                                    <div class="card-body text-center">
+                                        <i class="fa fa-user-check fa-2x mb-2" title="Active Employees" aria-label="Active Employees"/>
+                                        <field name="active_employee" nolabel="1" class="d-block fs-3 fw-bold text-white"/>
+                                        <span class="d-block small text-white-50">Active Employees</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Draft Employees -->
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <div class="card shadow-sm rounded-3 h-100 border-0 text-white" style="background-color:#6c757d;">
+                                    <div class="card-body text-center">
+                                        <i class="fa fa-clock fa-2x mb-2" title="Draft Employees" aria-label="Draft Employees"/>
+                                        <field name="draft_employee" nolabel="1" class="d-block fs-3 fw-bold text-white"/>
+                                        <span class="d-block small text-white-50">Draft Employees</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Confirmed Employees -->
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <div class="card shadow-sm rounded-3 h-100 border-0 text-white bg-primary">
+                                    <div class="card-body text-center">
+                                        <i class="fa fa-check-circle fa-2x mb-2" title="Confirmed Employees" aria-label="Confirmed Employees"/>
+                                        <field name="confirmed_employee" nolabel="1" class="d-block fs-3 fw-bold text-white"/>
+                                        <span class="d-block small text-white-50">Confirmed Employees</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Employees On Leave -->
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <div class="card shadow-sm rounded-3 h-100 border-0 text-white bg-warning">
+                                    <div class="card-body text-center">
+                                        <i class="fa fa-calendar fa-2x mb-2" title="Employees On Leave" aria-label="Employees On Leave"/>
+                                        <field name="leave_employee" nolabel="1" class="d-block fs-3 fw-bold text-white"/>
+                                        <span class="d-block small text-white-50">On Leave</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Resigned Employees -->
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <div class="card shadow-sm rounded-3 h-100 border-0 text-white bg-danger">
+                                    <div class="card-body text-center">
+                                        <i class="fa fa-user-minus fa-2x mb-2" title="Resigned Employees" aria-label="Resigned Employees"/>
+                                        <field name="resigned_employee" nolabel="1" class="d-block fs-3 fw-bold text-white"/>
+                                        <span class="d-block small text-white-50">Resigned Employees</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- ================================================= -->
+                        <!-- Section 2: Organization                            -->
+                        <!-- ================================================= -->
+                        <h4 class="mb-3 mt-2">Organization</h4>
+                        <div class="row">
+
+                            <!-- Total Departments -->
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <div class="card shadow-sm rounded-3 h-100 border-0 text-white" style="background-color:#17a2b8;">
+                                    <div class="card-body text-center">
+                                        <i class="fa fa-building fa-2x mb-2" title="Total Departments" aria-label="Total Departments"/>
+                                        <field name="total_department" nolabel="1" class="d-block fs-3 fw-bold text-white"/>
+                                        <span class="d-block small text-white-50">Total Departments</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Total Assets -->
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <div class="card shadow-sm rounded-3 h-100 border-0 text-white" style="background-color:#8950FC;">
+                                    <div class="card-body text-center">
+                                        <i class="fa fa-laptop fa-2x mb-2" title="Total Assets" aria-label="Total Assets"/>
+                                        <field name="total_asset" nolabel="1" class="d-block fs-3 fw-bold text-white"/>
+                                        <span class="d-block small text-white-50">Total Assets</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Total Documents -->
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <div class="card shadow-sm rounded-3 h-100 border-0 text-white" style="background-color:#F1416C;">
+                                    <div class="card-body text-center">
+                                        <i class="fa fa-file fa-2x mb-2" title="Total Documents" aria-label="Total Documents"/>
+                                        <field name="total_document" nolabel="1" class="d-block fs-3 fw-bold text-white"/>
+                                        <span class="d-block small text-white-50">Total Documents</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- ================================================= -->
+                        <!-- Section 3: Attendance                              -->
+                        <!-- ================================================= -->
+                        <h4 class="mb-3 mt-2">Attendance</h4>
+                        <div class="row">
+
+                            <!-- Present Today -->
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <div class="card shadow-sm rounded-3 h-100 border-0 text-white bg-success">
+                                    <div class="card-body text-center">
+                                        <i class="fa fa-calendar-check fa-2x mb-2" title="Present Today" aria-label="Present Today"/>
+                                        <field name="present_today" nolabel="1" class="d-block fs-3 fw-bold text-white"/>
+                                        <span class="d-block small text-white-50">Present Today</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Absent Today -->
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <div class="card shadow-sm rounded-3 h-100 border-0 text-white bg-danger">
+                                    <div class="card-body text-center">
+                                        <i class="fa fa-calendar-check fa-2x mb-2" title="Absent Today" aria-label="Absent Today"/>
+                                        <field name="absent_today" nolabel="1" class="d-block fs-3 fw-bold text-white"/>
+                                        <span class="d-block small text-white-50">Absent Today</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Late Today -->
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <div class="card shadow-sm rounded-3 h-100 border-0 text-white bg-warning">
+                                    <div class="card-body text-center">
+                                        <i class="fa fa-calendar-check fa-2x mb-2" title="Late Today" aria-label="Late Today"/>
+                                        <field name="late_today" nolabel="1" class="d-block fs-3 fw-bold text-white"/>
+                                        <span class="d-block small text-white-50">Late Today</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- ================================================= -->
+                        <!-- Section 4: Quick Actions                           -->
+                        <!-- ================================================= -->
+                        <h4 class="mb-3 mt-2">Quick Actions</h4>
+                        <div class="row">
+
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <button name="%(action_employee_management_employee)d"
+                                        type="action"
+                                        class="btn btn-outline-primary w-100 shadow-sm rounded-3 py-3">
+                                    <i class="fa fa-plus me-2" title="Create Employee" aria-label="Create Employee"/>
+                                    Create Employee
+                                </button>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <button name="%(action_employee_management_department)d"
+                                        type="action"
+                                        class="btn btn-outline-info w-100 shadow-sm rounded-3 py-3">
+                                    <i class="fa fa-building me-2" title="Departments" aria-label="Departments"/>
+                                    Departments
+                                </button>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <button name="%(action_employee_management_asset)d"
+                                        type="action"
+                                        class="btn btn-outline-secondary w-100 shadow-sm rounded-3 py-3">
+                                    <i class="fa fa-laptop me-2" title="Assets" aria-label="Assets"/>
+                                    Assets
+                                </button>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <button name="%(action_employee_management_document)d"
+                                        type="action"
+                                        class="btn btn-outline-danger w-100 shadow-sm rounded-3 py-3">
+                                    <i class="fa fa-file me-2" title="Documents" aria-label="Documents"/>
+                                    Documents
+                                </button>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <button name="%(action_employee_management_attendance)d"
+                                        type="action"
+                                        class="btn btn-outline-success w-100 shadow-sm rounded-3 py-3">
+                                    <i class="fa fa-calendar-check me-2" title="Attendance" aria-label="Attendance"/>
+                                    Attendance
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- Dashboard Action                                           -->
+    <!-- ========================================================= -->
+    <record id="action_employee_dashboard" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">employee.management.dashboard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_employee_dashboard_form"/>
+        <field name="target">current</field>
+    </record>
+
+</odoo>

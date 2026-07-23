@@ -4,29 +4,16 @@
     <record id="action_asset_report" model="ir.actions.report">
 
         <field name="name">Asset Report</field>
-
         <field name="model">employee.management.asset</field>
-
         <field name="report_type">qweb-pdf</field>
 
-        <field name="report_name">
-            employee_management.asset_report_template
-        </field>
+        <field name="report_name">employee_management.asset_report_template</field>
+        <field name="report_file">employee_management.asset_report_template</field>
 
-        <field name="report_file">
-            employee_management.asset_report_template
-        </field>
+        <field name="binding_model_id" ref="model_employee_management_asset"/>
+        <field name="binding_type">report</field>
 
-        <field name="binding_model_id"
-               ref="model_employee_management_asset"/>
-
-        <field name="binding_type">
-            report
-        </field>
-
-        <field name="print_report_name">
-            'Asset - %s' % (object.name)
-        </field>
+        <field name="print_report_name">'Asset - %s' % (object.name)</field>
 
     </record>
 

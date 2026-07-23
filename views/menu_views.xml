@@ -74,6 +74,13 @@
         parent="menu_employee_management_root"
         action="action_employee_management_asset"
         sequence="60"/>
+        
+    <menuitem
+    id="menu_employee_dashboard"
+    name="Dashboard"
+    parent="menu_employee_management_root"
+    action="action_employee_dashboard"
+    sequence="1"/>
 
 </odoo>
 

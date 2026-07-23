@@ -4,3 +4,4 @@ from . import designation
 from . import attendance
 from . import employee_document
 from . import employee_asset
+from . import dashboard
