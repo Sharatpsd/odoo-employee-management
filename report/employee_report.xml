@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Employee Report Action -->
+    <record id="action_employee_report" model="ir.actions.report">
+        <field name="name">Employee Report</field>
+        <field name="model">employee.management.employee</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">employee_management.employee_report_template</field>
+        <field name="report_file">employee_management.employee_report_template</field>
+        <field name="print_report_name">
+            'Employee - %s' % (object.name)
+        </field>
+        <field name="binding_model_id" ref="model_employee_management_employee"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

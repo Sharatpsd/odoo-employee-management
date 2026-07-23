@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="asset_report_template">
+
+        <t t-call="web.html_container">
+
+            <t t-foreach="docs" t-as="asset">
+
+                <t t-call="web.external_layout">
+
+                    <div class="page">
+
+                        <h2 style="text-align:center;">
+                            Employee Asset Report
+                        </h2>
+
+                        <br/>
+
+                        <table style="width:100%;">
+
+                            <tr>
+
+                                <td width="70%" valign="top">
+
+                                    <table class="table table-bordered"
+                                           style="width:100%;">
+
+                                        <tr>
+                                            <td><strong>Asset Code</strong></td>
+                                            <td>
+                                                <span t-field="asset.asset_code"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Asset Name</strong></td>
+                                            <td>
+                                                <span t-field="asset.name"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Category</strong></td>
+                                            <td>
+                                                <span t-field="asset.category"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Employee</strong></td>
+                                            <td>
+                                                <span t-field="asset.employee_id"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Department</strong></td>
+                                            <td>
+                                                <span t-field="asset.employee_id.department_id"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Designation</strong></td>
+                                            <td>
+                                                <span t-field="asset.employee_id.designation_id"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Status</strong></td>
+                                            <td>
+                                                <span t-field="asset.status"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Serial Number</strong></td>
+                                            <td>
+                                                <span t-field="asset.serial_number"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Purchase Date</strong></td>
+                                            <td>
+                                                <span t-field="asset.purchase_date"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Assigned Date</strong></td>
+                                            <td>
+                                                <span t-field="asset.assigned_date"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Return Date</strong></td>
+                                            <td>
+                                                <span t-field="asset.return_date"/>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+
+                                </td>
+
+                                <td width="30%" align="center">
+
+                                    <t t-if="asset.employee_id.image_1920">
+
+                                        <img
+                                            t-att-src="image_data_uri(asset.employee_id.image_1920)"
+                                            style="width:150px;height:150px;border:1px solid #999;"/>
+
+                                    </t>
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                        <br/>
+
+                        <h4>Employee Contact</h4>
+
+                        <table class="table table-bordered">
+
+                            <tr>
+
+                                <td>
+                                    <strong>Email</strong>
+                                </td>
+
+                                <td>
+                                    <span t-field="asset.employee_id.email"/>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <strong>Phone</strong>
+                                </td>
+
+                                <td>
+                                    <span t-field="asset.employee_id.phone"/>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <strong>Joining Date</strong>
+                                </td>
+
+                                <td>
+                                    <span t-field="asset.employee_id.joining_date"/>
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                        <br/>
+
+                        <t t-if="asset.notes">
+
+                            <h4>Asset Notes</h4>
+
+                            <div style="border:1px solid #888;padding:10px;">
+
+                                <span t-field="asset.notes"/>
+
+                            </div>
+
+                        </t>
+
+                        <br/><br/>
+
+                        <table style="width:100%;">
+
+                            <tr>
+
+                                <td align="center">
+
+                                    ______________________
+
+                                    <br/>
+
+                                    Employee Signature
+
+                                </td>
+
+                                <td align="center">
+
+                                    ______________________
+
+                                    <br/>
+
+                                    Asset Manager
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </div>
+
+                </t>
+
+            </t>
+
+        </t>
+
+    </template>
+
+</odoo>

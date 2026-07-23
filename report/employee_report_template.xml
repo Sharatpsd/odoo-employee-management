@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="employee_report_template">
+
+        <t t-call="web.html_container">
+
+            <t t-foreach="docs" t-as="employee">
+
+                <t t-call="web.external_layout">
+
+                    <div class="page">
+
+                        <div style="text-align:center;">
+                            <h2>Employee Profile Report</h2>
+                        </div>
+
+                        <br/>
+
+                        <table style="width:100%;">
+
+                            <tr>
+
+                                <td width="75%" valign="top">
+
+                                    <table class="table table-bordered"
+                                           style="width:100%;">
+
+                                        <tr>
+                                            <td><strong>Employee Code</strong></td>
+                                            <td>
+                                                <span t-field="employee.employee_code"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Name</strong></td>
+                                            <td>
+                                                <span t-field="employee.name"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Department</strong></td>
+                                            <td>
+                                                <span t-field="employee.department_id"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Designation</strong></td>
+                                            <td>
+                                                <span t-field="employee.designation_id"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Manager</strong></td>
+                                            <td>
+                                                <span t-field="employee.manager_id"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Email</strong></td>
+                                            <td>
+                                                <span t-field="employee.email"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Phone</strong></td>
+                                            <td>
+                                                <span t-field="employee.phone"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Joining Date</strong></td>
+                                            <td>
+                                                <span t-field="employee.joining_date"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Experience</strong></td>
+                                            <td>
+                                                <span t-field="employee.experience"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Status</strong></td>
+                                            <td>
+                                                <span t-field="employee.status"/>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+
+                                </td>
+
+                                <td width="25%" align="center" valign="top">
+
+                                    <t t-if="employee.image_1920">
+
+                                        <img t-att-src="image_data_uri(employee.image_1920)"
+                                             style="width:150px;height:150px;border:1px solid #999;"/>
+
+                                    </t>
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                        <br/>
+
+                        <h4>Personal Information</h4>
+
+                        <table class="table table-bordered">
+
+                            <tr>
+                                <td><strong>Date of Birth</strong></td>
+                                <td>
+                                    <span t-field="employee.date_of_birth"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Age</strong></td>
+                                <td>
+                                    <span t-field="employee.age"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Probation End</strong></td>
+                                <td>
+                                    <span t-field="employee.probation_end_date"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Years of Service</strong></td>
+                                <td>
+                                    <span t-field="employee.years_of_service"/>
+                                </td>
+                            </tr>
+
+                        </table>
+
+                        <br/>
+
+                        <t t-if="employee.notes">
+
+                            <h4>Notes</h4>
+
+                            <div style="border:1px solid #888;padding:10px;">
+
+                                <span t-field="employee.notes"/>
+
+                            </div>
+
+                        </t>
+
+                    </div>
+
+                </t>
+
+            </t>
+
+        </t>
+
+    </template>
+
+</odoo>

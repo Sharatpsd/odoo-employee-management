@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="attendance_report_template">
+
+        <t t-call="web.html_container">
+
+            <t t-foreach="docs" t-as="attendance">
+
+                <t t-call="web.external_layout">
+
+                    <div class="page">
+
+                        <h2 style="text-align:center;">
+                            Attendance Report
+                        </h2>
+
+                        <br/>
+
+                        <table style="width:100%;">
+
+                            <tr>
+
+                                <td width="70%" valign="top">
+
+                                    <table class="table table-bordered"
+                                           style="width:100%;">
+
+                                        <tr>
+                                            <td><strong>Employee</strong></td>
+                                            <td>
+                                                <span t-field="attendance.employee_id"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Department</strong></td>
+                                            <td>
+                                                <span t-field="attendance.employee_id.department_id"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Designation</strong></td>
+                                            <td>
+                                                <span t-field="attendance.employee_id.designation_id"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Check In</strong></td>
+                                            <td>
+                                                <span t-field="attendance.check_in"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Check Out</strong></td>
+                                            <td>
+                                                <span t-field="attendance.check_out"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Worked Hours</strong></td>
+                                            <td>
+                                                <span t-field="attendance.worked_hours"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Status</strong></td>
+                                            <td>
+                                                <span t-field="attendance.status"/>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+
+                                </td>
+
+                                <td width="30%" align="center">
+
+                                    <t t-if="attendance.employee_id.image_1920">
+
+                                        <img
+                                            t-att-src="image_data_uri(attendance.employee_id.image_1920)"
+                                            style="width:150px;height:150px;border:1px solid #999;"/>
+
+                                    </t>
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                        <br/>
+
+                        <h4>Employee Information</h4>
+
+                        <table class="table table-bordered">
+
+                            <tr>
+                                <td><strong>Email</strong></td>
+                                <td>
+                                    <span t-field="attendance.employee_id.email"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Phone</strong></td>
+                                <td>
+                                    <span t-field="attendance.employee_id.phone"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Joining Date</strong></td>
+                                <td>
+                                    <span t-field="attendance.employee_id.joining_date"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Experience</strong></td>
+                                <td>
+                                    <span t-field="attendance.employee_id.experience"/>
+                                </td>
+                            </tr>
+
+                        </table>
+
+                        <br/><br/>
+
+                        <table style="width:100%;">
+
+                            <tr>
+
+                                <td style="text-align:center;">
+
+                                    _______________________
+
+                                    <br/>
+
+                                    Employee Signature
+
+                                </td>
+
+                                <td style="text-align:center;">
+
+                                    _______________________
+
+                                    <br/>
+
+                                    HR Signature
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </div>
+
+                </t>
+
+            </t>
+
+        </t>
+
+    </template>
+
+</odoo>

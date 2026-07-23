@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Attendance Report Action -->
+
+    <record id="action_attendance_report" model="ir.actions.report">
+
+        <field name="name">Attendance Report</field>
+
+        <field name="model">employee.management.attendance</field>
+
+        <field name="report_type">qweb-pdf</field>
+
+        <field name="report_name">
+            employee_management.attendance_report_template
+        </field>
+
+        <field name="report_file">
+            employee_management.attendance_report_template
+        </field>
+
+        <field name="binding_model_id"
+               ref="model_employee_management_attendance"/>
+
+        <field name="binding_type">
+            report
+        </field>
+
+        <field name="print_report_name">
+            'Attendance - %s' % (object.employee_id.name)
+        </field>
+
+    </record>
+
+</odoo>
