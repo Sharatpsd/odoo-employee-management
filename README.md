@@ -1,258 +1,71 @@
-# 👨‍💼 Employee Management System
+<h1 align="center">Employee Management System</h1>
 
-A complete custom **Employee Management System** built with **Odoo 19 Community Edition**. This project demonstrates end-to-end Odoo module development, including employee lifecycle management, business logic, custom workflows, security, smart buttons, and multiple UI views.
+<p align="center">
+    A Custom Employee Management Module Built with Odoo 19 Community Edition
+</p>
 
-> This project was developed as part of my Odoo learning journey to gain hands-on experience with custom module development and ERP business workflows.
+<p align="center">
 
----
+![Odoo](https://img.shields.io/badge/Odoo-19-purple?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue?style=for-the-badge)
+![License](https://img.shields.io/badge/License-LGPL--3-green?style=for-the-badge)
 
-## 📌 Table of Contents
-
-- Overview
-- Features
-- Module Workflow
-- Technologies Used
-- Module Structure
-- Installation
-- Learning Outcomes
-- Future Improvements
-- Author
-- License
+</p>
 
 ---
 
-# 📖 Overview
+## 📖 Overview
 
-The Employee Management System is a custom Odoo module that centralizes employee-related operations in a single application.
+**Employee Management System** is a custom Odoo 19 module developed to simplify employee administration inside an organization.
 
-It enables organizations to:
-
-- Manage employee information
-- Organize departments and designations
-- Record attendance
-- Manage employee documents
-- Track company assets
-- Control employee workflow
-- Apply role-based security
-
-The project follows Odoo's MVC architecture and uses Python for business logic, XML for views, PostgreSQL for data storage, and Odoo ORM for database operations.
+The module centralizes employee information, department management, attendance tracking, document storage, and company asset management into a single ERP solution.
 
 ---
 
-# ✨ Features
+## 📸 Screenshots
 
-## 👤 Employee Management
+### 👥 Employee Management
 
-- Employee Profile
-- Employee Photo
-- Auto Generated Employee Code
-- Email & Phone
-- Date of Birth
-- Joining Date
-- Department
-- Designation
-- Notes
-- Active/Inactive Status
+Employee Kanban View displaying employee profiles.
 
-### Auto Employee Sequence
-
-Every employee receives a unique ID automatically.
-
-Example:
-
-```
-EMP00001
-EMP00002
-EMP00003
-```
+<p align="center">
+<img src="screenshots/employee.png" width="900">
+</p>
 
 ---
 
-## 🏢 Department Management
+### 🏢 Department Management
 
-Manage company departments.
+Department list view.
 
-Examples:
-
-- HR
-- IT
-- ERP
-- Accounts
-- Marketing
+<p align="center">
+<img src="screenshots/Department.png" width="900">
+</p>
 
 ---
 
-## 💼 Designation Management
+### 🕒 Attendance Management
 
-Manage employee job positions.
+Attendance check-in and check-out.
 
-Examples:
-
-- Software Engineer
-- ERP Executive
-- HR Officer
-- Accounts Executive
-- Manager
+<p align="center">
+<img src="screenshots/attendence.png" width="900">
+</p>
 
 ---
 
-## 🕒 Attendance Management
+### 📄 Employee Documents
 
-Track employee attendance.
+Document management with attachments.
 
-Features:
-
-- Attendance Date
-- Check In
-- Check Out
-- Employee Reference
+<p align="center">
+<img src="screenshots/info.png" width="900">
+</p>
 
 ---
 
-## 📄 Employee Documents
-
-Store employee-related documents.
-
-Examples:
-
-- CV
-- National ID
-- Passport
-- Offer Letter
-- Appointment Letter
-
-Features:
-
-- Document Type
-- File Upload
-- Description
-
----
-
-## 💻 Employee Assets
-
-Manage company assets assigned to employees.
-
-Examples:
-
-- Laptop
-- Desktop
-- Mobile
-- Keyboard
-- Mouse
-
-Features:
-
-- Asset Name
-- Asset Code
-- Assigned Employee
-- Issue Date
-
----
-
-# 🔘 Smart Buttons
-
-Employee Form includes Smart Buttons for:
-
-- Documents
-- Assets
-
-These buttons display record counts and provide quick navigation.
-
----
-
-# 🔄 Employee Workflow
-
-Employee lifecycle is managed using custom workflow states.
-
-```
-Draft
-   ↓
-Confirmed
-   ↓
-Active
-   ↓
-On Leave
-   ↓
-Resigned
-```
-
----
-
-# 🔍 Views
-
-The module includes multiple Odoo views.
-
-- Form View
-- List View
-- Kanban View
-- Search View
-
-Kanban cards display:
-
-- Employee Photo
-- Employee Name
-- Employee Code
-- Department
-- Designation
-- Status
-
----
-
-# 🔐 Security
-
-Implemented role-based access control.
-
-### Employee Management User
-
-- Read Records
-- Create Records
-- Update Records
-
-### Employee Management Manager
-
-- Full CRUD Access
-- Manage All Records
-- Administrative Permissions
-
-Security includes:
-
-- Groups
-- Access Rights
-- Record Rules
-
----
-
-# ⚙ Business Logic
-
-Implemented using Python and Odoo ORM.
-
-Includes:
-
-- Auto Employee Sequence
-- Computed Fields
-- Related Fields
-- Smart Button Count
-- Workflow Actions
-- Custom Business Methods
-- Validations
-
----
-
-# 🗄 Database Models
-
-The project contains the following models:
-
-- employee.management.employee
-- employee.management.department
-- employee.management.designation
-- employee.management.attendance
-- employee.management.document
-- employee.management.asset
-
----
-
-# 📂 Project Structure
+## 🏗 Module Architecture
 
 ```
 employee_management/
@@ -273,6 +86,12 @@ employee_management/
 │   ├── ir.model.access.csv
 │   └── security.xml
 │
+├── screenshots/
+│   ├── employee.png
+│   ├── Department.png
+│   ├── attendence.png
+│   └── info.png
+│
 ├── views/
 │   ├── employee_views.xml
 │   ├── employee_kanban_views.xml
@@ -283,95 +102,211 @@ employee_management/
 │   ├── employee_asset_views.xml
 │   └── menu_views.xml
 │
-├── __init__.py
 ├── __manifest__.py
+├── __init__.py
 └── README.md
 ```
 
 ---
 
-# 🛠 Technologies Used
+## 🚀 Key Features
 
-- Odoo 19 Community
-- Python
-- PostgreSQL
-- XML
-- Odoo ORM
-- Git
-- GitHub
-- Ubuntu (WSL)
-- VS Code
+### 👤 Employee Management
+
+- Employee Profile
+- Employee Photo
+- Employee Code (Auto Sequence)
+- Email & Phone
+- Date of Birth
+- Joining Date
+- Department
+- Designation
+- Notes
+- Active Status
 
 ---
 
-# 📚 Learning Outcomes
+### 🏢 Department Management
 
-During this project I learned and practiced:
+- Department Creation
+- Department Code
+- Department Manager
+- Active Status
 
-- Odoo Module Development
-- Odoo ORM
-- Python Business Logic
-- XML View Development
-- Form/List/Kanban/Search Views
-- Models & Relationships
-- Actions & Menus
-- Smart Buttons
-- Computed Fields
-- Related Fields
-- Workflow Management
+---
+
+### 💼 Designation Management
+
+- Employee Designations
+- Position Management
+
+---
+
+### 🕒 Attendance Management
+
+- Employee Check-In
+- Employee Check-Out
+- Worked Hours
+- Attendance History
+
+---
+
+### 📄 Employee Document Management
+
+- Upload Documents
+- Document Type
+- Expiry Date
+- Attachments
+- Status
+- Notes
+
+---
+
+### 💻 Employee Asset Management
+
+- Company Asset Assignment
+- Asset Tracking
+- Asset Information
+
+---
+
+### 🔘 Smart Buttons
+
+Employee Form includes:
+
+- Documents
+- Assets
+
+Displays related record counts with quick navigation.
+
+---
+
+### 🔄 Employee Workflow
+
+```
+Draft
+   ↓
+Confirmed
+   ↓
+Active
+   ↓
+On Leave
+   ↓
+Resigned
+```
+
+---
+
+### 🔐 Security
+
+Role-based access control using:
+
 - Security Groups
 - Access Rights
 - Record Rules
-- Sequences
-- PostgreSQL Integration
-- Module Installation & Upgrade
-- Debugging and Error Resolution
 
 ---
 
-# 🚀 Future Improvements
+## ⚙ Technologies Used
 
-Planned features:
+| Technology | Description |
+|------------|-------------|
+| Odoo 19 Community | ERP Framework |
+| Python | Backend Development |
+| PostgreSQL | Database |
+| XML | User Interface |
+| Odoo ORM | Database Operations |
+| Git | Version Control |
+| GitHub | Source Code Hosting |
+| Ubuntu (WSL) | Development Environment |
+| VS Code | IDE |
+
+---
+
+## 🧠 Technical Highlights
+
+This project demonstrates practical experience with:
+
+- Custom Odoo Module Development
+- Odoo ORM
+- Python Business Logic
+- XML Views (Form, Tree, Kanban, Search)
+- Smart Buttons
+- Computed Fields
+- Related Fields
+- Many2one Relationships
+- One2many Relationships
+- Record Rules
+- Access Rights
+- Security Groups
+- Custom Workflow
+- Sequences
+- Action Windows
+- Menus
+- PostgreSQL Integration
+- Module Installation & Upgrade
+- Debugging & Error Resolution
+
+---
+
+## 🚀 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Sharatpsd/odoo-employee-management.git
+```
+
+1. Copy the module into your **custom_addons** directory.
+2. Update the Apps List.
+3. Search for **Employee Management**.
+4. Click **Install**.
+
+---
+
+## 📈 Future Enhancements
 
 - Leave Management
 - Payroll
 - Recruitment
 - Employee Contracts
 - Performance Evaluation
-- Dashboard & Analytics
 - Calendar View
-- Graph & Pivot Views
+- Dashboard, Graph & Pivot Views
+- Email Notifications
+- QR Attendance
+- Barcode Support
 - PDF Reports
 - Excel Export
-- Email Notifications
-- QR/Barcode Support
 - Multi-company Support
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
-## Sharat Acharja
+**Sharat Acharja**
+Backend Developer | Odoo Developer | Python Developer
 
-**Backend Developer | Odoo Developer | Python Developer**
+🌐 Portfolio: [sharatpsd.netlify.app](https://sharatpsd.netlify.app/)
+💻 GitHub: [github.com/Sharatpsd](https://github.com/Sharatpsd)
+💼 LinkedIn: [linkedin.com/in/sharat-acharjya](https://www.linkedin.com/in/sharat-acharjya/)
 
-🌐 **Portfolio**  
-https://sharatpsd.netlify.app/
+---
 
-💻 **GitHub**  
-https://github.com/Sharatpsd
+## 🤝 Contributing
 
-💼 **LinkedIn**  
-https://www.linkedin.com/in/sharat-acharjya/
+Contributions, suggestions, and improvements are welcome.
+
+If you find a bug or have an idea for an enhancement, feel free to open an Issue or submit a Pull Request.
 
 ---
 
 ## ⭐ Support
 
-If you found this project useful, please consider giving it a **⭐ Star** on GitHub.
+If you found this project useful, please consider giving it a ⭐ Star on GitHub.
 
 ---
 
-# 📄 License
+## 📄 License
 
 This project is licensed under the **LGPL-3 License**.
